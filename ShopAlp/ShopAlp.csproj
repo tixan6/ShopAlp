@@ -7,12 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="wwwroot\js\" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <Folder Include="wwwroot\Image\Catalog\Equipment\" />
+    <Folder Include="wwwroot\Image\Catalog\Bags\" />
+    <Folder Include="wwwroot\Image\Catalog\Tents\" />
+    <Folder Include="wwwroot\Image\Catalog\ligth\" />
+    <Folder Include="wwwroot\test\" />
   </ItemGroup>
 
 </Project>

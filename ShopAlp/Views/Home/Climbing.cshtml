@@ -1,0 +1,96 @@
+﻿@using ShopAlp.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<link rel="stylesheet" href="~/test/bootstrap-theme.css" />
+@model List<List<object>>
+@{
+    ViewData["Title"] = "Climbing";
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrntPage;
+    }
+}
+
+<div class="product">
+
+    <div class="tovar-blocks">
+
+        @foreach (var item in Model)
+        {
+            <div class="block-items forSearch" id="@item[0]">
+
+                <div class="img-place">
+                    <img class="photo-tovar" src="~/@item[3]" />
+                </div>
+
+                <div class="inf-place">
+                    <h4 class="title-name">@item[1]</h4>
+                    <p class="title-desc">@item[2]</p>
+                    <div class="maker">
+
+                        <div class="o1" style="display: flex; align-items: center;">
+                            <h5 style="margin: 0; padding: 5px;">Производитель - </h5>
+                            <p style="margin: 0; padding: 5px;" class="title-desc">@item[4]</p>
+                        </div>
+                        <div class="menu-line"></div>
+                        <div class="o2" style="display: flex; align-items: center;">
+                            <h5 style="margin: 0; padding: 5px;">Материал - </h5>
+                            <p style="margin: 0; v" class="title-desc">@item[5]</p>
+                        </div>
+                        <div class="menu-line"></div>
+                        <div class="o3" style="display: flex; align-items: center;">
+                            <h5 style="margin: 0; padding: 5px;">Вес граммы - </h5>
+                            <p style="margin: 0; padding: 5px;" class="title-desc">@item[6]</p>
+                        </div>
+                        <div class="menu-line"></div>
+              
+                    </div>
+                </div>
+                <div class="todo-place">
+                   
+                    @if (Convert.ToBoolean(item[7]))
+                    {
+                        <div>
+                            <h4 class="inStock">В наличии</h4>
+                            <h4 class="price"><span class="price-bold">@item[9]</span> BYN</h4>
+                            <div class="btn-format" id="flex-end">
+                                @Html.ActionLink("В корзину", "sdf", "sdf")
+                            </div>
+                        </div>
+                        
+                    }
+                    else
+                    {
+                        <div>
+                            <h4 class="NonStock">Нет в наличии</h4>
+                            <h4 class="price"><span class="price-bold">@item[9]</span> BYN</h4>
+                            <p style="margin: 0; padding: 5px;" class="title-desc">Свяжитесь с оператором о поступлении</p>
+                        </div>
+                    }
+
+
+                    
+
+                </div>
+            </div>
+        }
+        
+    </div>
+
+    <div class="pg">
+        @if (pager.TotalPage > 0)
+        {
+            <ul class="pagination justify-content-end">
+                @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+                {
+                    <li  class="page-item @(pge == pager.CurrntPage ? "active" : "")" >
+                        @Html.ActionLink($"{@pge}", "Climbing",  new {type = ViewBag.type, dataBd = ViewBag.dataBd, pg = @pge, name = ViewBag.type})
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+    
+</div>

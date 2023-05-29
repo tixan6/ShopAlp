@@ -2,5 +2,207 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="slider">
+    <div class="items-slider">
+        <div class="items">
+            <div class="img-slider-item" id="itm1">
 
+                <div class="mrg">
+                    <div class="title">
+                        <p>
+                            Альпинистские веревки
+                        </p>
+                    </div>
+                    <div class="btn-toCatalog">
+                        <div class="btn-format">
+                            @Html.ActionLink("Перейти", "Subdirectory",  new {type = "Веревка", dataBd = "Equipment"})
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>     
+        </div>
+
+        <div class="items">
+            <div class="img-slider-item" id="itm5">
+
+                <div class="mrg">
+                    <div class="title">
+                        <p>
+                            Альпинистские рюкзаки
+                        </p>
+                    </div>
+                    <div class="btn-toCatalog">
+                        <div class="btn-format">
+                            @Html.ActionLink("Перейти", "Subdirectory", new {type = "Рюкзаки", dataBd = "Bags"})
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="img-slider-item" id="itm3">
+
+                <div class="mrg">
+                    <div class="title">
+                        <p>
+                            Альпинистские палатки
+                        </p>
+                    </div>
+                    <div class="btn-toCatalog">
+                        <div class="btn-format">
+                            @Html.ActionLink("Перейти", "Subdirectory", new {type = "Универсальные", dataBd = "Tents"})
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="items">
+            <div class="img-slider-item" id="itm4">
+
+                <div class="mrg">
+                    <div class="title">
+                        <p>
+                            Альпинистские
+                            фонари
+                        </p>
+                    </div>
+                    <div class="btn-toCatalog">
+                        <div class="btn-format">
+                            @Html.ActionLink("Фонари", "Climbing", new {name = "light"})
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="short-title-under-slider">
+    <div class="items-desc">
+        <img class="icons-desc" src="~/Image/Icons/Wallet.png"/>
+        <p>
+            Наличная и без
+            наличная оплата
+        </p>
+    </div>
+    <div class="items-desc">
+        <img class="icons-desc" src="~/Image/Icons/del.png" />
+        <p>
+            Быстрая доставка
+            по Гомелю
+        </p>
+    </div>
+    <div class="items-desc">
+        <img class="icons-desc" src="~/Image/Icons/clock.png" />
+        <p>
+            Работает без
+            выходных
+        </p>
+    </div>
+</div>
+
+
+
+
+<div class="photo-menu">
+    <div class="row1">
+
+
+        <div class="items-one qwe" id="bg-photo-menu1">
+            <div class="whitePlace">
+                <p>
+                    Альпинистское
+                    снаряжение
+                    Korhert
+                </p>
+               
+            </div>
+            @Html.ActionLink("Перейти", "sdf", "sdf")
+        </div>
+
+
+        <div class="items-two qwe" id="bg-photo-menu2">
+            <div class="whitePlace">
+                <p>
+                    Рюкзаки и сумки ALphaTanorian
+                </p>
+            </div>
+            @Html.ActionLink("Перейти", "sdf", "sdf")
+        </div>
+
+    </div>
+
+    <div class="row1" id="mrg10p">
+
+        <div class="items-three qwe" id="bg-photo-menu3">
+            <div class="whitePlace">
+                <p>
+                    Палатки и рюкзаки Grazoria
+                </p>
+            </div>
+            @Html.ActionLink("Перейти", "sdf", "sdf")
+        </div>
+
+        <div class="items-four qwe" id="bg-photo-menu4">
+            <div class="whitePlace">
+                <p>
+                    Инструменты Polte и 
+                    снаряжение
+                </p>
+            </div>
+            @Html.ActionLink("Перейти", "sdf", "sdf")
+        </div>        
+    </div>
+</div>
+
+
+
+
+<div class="main-infoemation">
+    <h2>Интернет-магазин туристического снаряжения в Гомеле</h2>
+    <p>Товары для туризма – это огромная категория изделий, включающая в себя всё, что только можно вообразить находящимся в рюкзаке путешественника:</p>
+    <ul>
+        <li>от походного мыла до рюкзаков;</li>
+        <li>от карманного фонарика до 4-местной палатки;</li>
+        <li>от мультитула до туристического бинокля.</li>
+    </ul>
+    <p>Прогресс не стоит на месте, и каждый день появляются новые технологии, облегчающие жизнь туристам и любителям активных видов спорта. alpgore.by - магазин, который привозит в Беларусь топовую продукцию от мировых брендов (Ganzo, Deuter, Husky, Pinguin, Victorinox, Petzl, Naturehike и т.д.) и помогает своим клиентам не запутаться в многообразии современного рынка.</p>
+    <p style="margin-top: 10px;">Некоторые из этих товаров являются жизненно необходимыми в пути, а другие – только обеспечивают дополнительный комфорт для туризма и кемпинга. В любом случае, в Гомеле без обращения в туристический интернет-магазин сложно представить не только серьезный продолжительный поход, но и выезд на природу на выходные.</p>
+    <h2>Какое снаряжение продается в магазине туристических товаров?</h2>
+    <p>Хороший интернет-магазин способен удовлетворить все потребности путешественника одним махом. Среди нашего ассортимента можно найти всё необходимое:</p>
+    <ul>
+        <li>
+            Товары для походов и путешествий:
+            <ul>
+                <li>спальные мешки, коврики и палатки – походный минимум каждого туриста;</li>
+                <li>фонари, ножи и зажигалки помогут разбить лагерь;</li>
+                <li>посуда, термосы и газ пригодятся на походной кухне;</li>
+                <li>в магазине туристического снаряжения также можно найти одежду, обувь и аксессуары из легких и прочных тканей, которые незаменимы в пути;</li>
+                <li>рюкзаки и сумки, способные вместить всё вышеперечисленное.</li>
+            </ul>
+        </li>
+        <li>Товары для альпинизма – в разделе «альпинистское снаряжение» есть всё необходимое для скалолазания и альпинизма, от петель и обвязок до кошек и касок.</li>
+    </ul>
+    <h2>Информация о стоимости и доставке товаров.</h2>
+    <p>alpgore.by – не просто туристический интернет-магазин. В ТЦ Секрет, с нами можно встретиться и получить очную консультацию по интересующему товару, а также выбрать и приобрести снаряжение.</p>
+    <p style="margin-top: 10px;">Кроме того, у нас работает доставка по всей Беларуси. Не важно, что мы находимся в Минске – покупка будет доставлена в любой уголок страны.</p>
+    <h2>Почему стоит покупать у нас?</h2>
+    <ul>
+        <li>Высшее качество.</li>
+        <li>Безграничный ассортимент.</li>
+        <li>Профессиональная консультация от квалифицированных сотрудников.</li>
+    </ul>
+    <h6>Мы любим туризм, альпинизм и своё дело. Добро пожаловать в наш магазин туристического снаряжения!</h6>
+</div>

@@ -3,29 +3,242 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>_Layout</title>
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/style.css")" />
 
 </head>
 <body>
     <header>
         <div class="top-header">
-            <div class="btn-entry">
-                <img src="~/Image/Icons/IconsProfile.png" />
-                @Html.ActionLink("Вход", "dfs", "dsf")
-            </div>
+            <div class="container">
+                <div class="Top-header-positions">
+                    <div class="left-items-topHeader" id="centerTopHeader">
+                        <div class="entry">
+                            <img class="icons-user" src="~/Image/Icons/IconsProfile.png" />
+                            @Html.ActionLink("Вход", "dfs", "dsf")
+                        </div>
+                        <div class="registraitions">
+                            @Html.ActionLink("Регистрация", "dfs", "dsf")
+                        </div>              
+                    </div>
+                    <div class="rigth-items-topHeader" id="centerTopHeader">               
+                        <img class="icons-card" src="~/Image/Icons/IconsCard.png" />
+                        @Html.ActionLink("0", "dfs", "dsf")                    
+                    </div>
+                </div>                         
+            </div>         
         </div>
 
-
         <div class="container">
+            <div class="middleHeader">
+                <div class="items-logo">
+                    <img src="~/Image/Icons/logo.png"/>
+                </div>
 
+                <div class="items-infoPlace">
+                    <p class="place-working">
+                        ТЦ Секрет 3, этаж 0, место 2
+                        Время работы: пн-вс 10:00-19:00
+                    </p>
+                </div>
+
+                <div class="items-Searching">
+                    <input type="search" class="input-search" placeholder="Поиск по странице"/>
+                    <button class="search-btn">Найти</button>
+                </div>
+
+                <div class="items-phoneNumbers">
+                    <div class="first-number" id="number-panel">
+                        <img src="~/Image/Icons/MTC.png" style="width: 24px; height: 7px; padding-right: 8px;  padding-top: 10px;" />
+                        <p>+375<span style="font-weight:bold;">(29)-232-24-32</span></p>
+                    </div>
+                    <div class="second-number" id="number-panel">
+                        <img src="~/Image/Icons/Life.png" style="width: 23px; height: 11px; padding-right: 8px;  padding-top: 10px;" />
+                        <p>+375<span style="font-weight:bold;">(29)-333-24-12</span></p>
+                    </div>
+                    <div class="third-number" id="number-panel">
+                        <img src="~/Image/Icons/a1.png" style="width: 19px; height: 19px; padding-right: 8px;  padding-top: 10px; " />
+                        <p>+375<span style="font-weight:bold;">(44)-212-22-33</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="BottomHeader"> 
+                <div class="menu-tool">
+
+                    <div class="items-menu-tool">
+                        @Html.ActionLink("Главная", "Index")
+                    </div>
+
+                    <div class="items-menu-tool">
+                        @Html.ActionLink("Контакты", "Contact")
+                    </div>
+
+                    <div class="items-menu-tool">
+                        @Html.ActionLink("Оплата и доставка", "Pay")
+                    </div>
+
+                    <div class="items-menu-tool">
+                        @Html.ActionLink("Наши друзья", "Friends")
+                    </div>
+
+                </div>
+            </div>
         </div>
     </header>
 
 
+    <section>
+        <div class="container">
+            <div class="center-items">
+                <div class="catalog">
+                    <div class="text-catalog-title">
+                        <p style="padding: 10px;">Каталог</p>
+                    </div>
 
 
+                    <div class="btn-catalog">
+                        <ul class="menu">
+                            <li>
+                                @Html.ActionLink("Альпинистское снаряжение", "Climbing", new {name = "Equipment"})
+                                <ul>
+                                    <li> @Html.ActionLink("Веревки", "Subdirectory",  new {type = "Веревка", dataBd = "Equipment"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Зажимы", "Subdirectory",  new {type = "Зажим", dataBd = "Equipment"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Магнезия", "Subdirectory", new {type = "Магнезия", dataBd = "Equipment"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Карабины", "Subdirectory", new {type = "Карабин", dataBd = "Equipment"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Скалолазанье", "Subdirectory", new {type = "Скалолазанье", dataBd = "Equipment"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Обвязки", "Subdirectory", new {type = "Обвязки", dataBd = "Equipment"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Спусковые устройства", "Subdirectory", new {type = "Спусковые устройства", dataBd = "Equipment"}) <div class="menu-line"></div></li>
+                                </ul>
+                                <div class="menu-line"></div>
+                            </li>
+
+                            <li>
+                                @Html.ActionLink("Рюкзаки и сумки", "Climbing", new {name = "Bags"})
+                                <ul>
+                                    <li> @Html.ActionLink("Рюкзаки", "Subdirectory", new {type = "Рюкзаки", dataBd = "Bags"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Сумки", "Subdirectory", new {type = "Сумки", dataBd = "Bags"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Питьевые системы", "Subdirectory",  new {type = "Питьевые системы", dataBd = "Bags"}) <div class="menu-line"></div></li>
+                                </ul>
+                                <div class="menu-line"></div>
+                            </li>
+
+                            <li>
+                                @Html.ActionLink("Палатки", "Climbing", new {name = "Tents"})
+                                <ul>
+                                    <li> @Html.ActionLink("Универсальные", "Subdirectory", new {type = "Универсальные", dataBd = "Tents"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Экстремальные", "Subdirectory", new {type = "Экстремальные", dataBd = "Tents"}) <div class="menu-line"></div></li>
+                                </ul>
+                                <div class="menu-line"></div>
+                            </li>
+                            <li>
+                                @Html.ActionLink("Фонари", "Climbing", new {name = "light"})
+                                <ul>
+                                    <li> @Html.ActionLink("Налобные", "Subdirectory", new {type = "Налобные", dataBd = "light"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Наключные", "Subdirectory", new {type = "Наключные", dataBd = "light"}) <div class="menu-line"></div></li>
+                                    <li> @Html.ActionLink("Ручные", "Subdirectory", new {type = "Ручные", dataBd = "light"}) <div class="menu-line"></div></li>
+                                </ul>
+                                <div class="menu-line"></div>
+                            </li>
+                            <li>
+                                @Html.ActionLink("СКИДКИ!!!", "sdf", "sdf")
+                            </li>
+
+                        </ul>
 
 
+                    </div>
+                </div>
 
-    @RenderBody()
+                <div class="RenderBody">
+                    @RenderBody()
+                </div>
+            </div>
+            
+           
+        </div>
+    </section>
+
+    <div style="width: 100%; height: 1px; background: #818181;"></div>
+
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="Block-items-footer">
+                    <p class="v1">Контактный телефон</p>
+                    <div class="items-phoneNumbers">
+                        <div class="first-number" id="number-panel1">
+                            <img src="~/Image/Icons/MTC.png" style="width: 24px; height: 7px; padding-right: 8px;  padding-top: 10px;" />
+                            <p>+375<span style="font-weight:bold;">(29)-232-24-32</span></p>
+                        </div>
+                        <div class="second-number" id="number-panel1">
+                            <img src="~/Image/Icons/Life.png" style="width: 23px; height: 11px; padding-right: 8px;  padding-top: 10px;" />
+                            <p>+375<span style="font-weight:bold;">(29)-333-24-12</span></p>
+                        </div>
+                        <div class="third-number" id="number-panel1">
+                            <img src="~/Image/Icons/a1.png" style="width: 19px; height: 19px; padding-right: 8px;  padding-top: 10px; " />
+                            <p>+375<span style="font-weight:bold;">(44)-212-22-33</span></p>
+                        </div>
+                    </div>
+
+
+                    <p class="v1">Режим работы</p>
+                    <div class="items-infoPlace">
+                        <p class="place-working">
+                            ТЦ Секрет 3, этаж 0, место 2
+                            Время работы: пн-вс 10:00-19:00
+                        </p>
+                    </div>
+
+                    <p class="v1">Элекстронынй адресс</p>
+                    <div class="items-infoPlace">
+                        <p class="place-working">
+                            Alpagor@gmail.com
+                        </p>
+                    </div>
+
+                    <div class="Rating">
+                        <p class="txt-rating">Рейтинг 4.7 </p>
+                        <div class="stars">
+                            <img src="~/Image/Icons/star.png" style="width: 10px; height: 10px; padding-left: 4px; " />
+                            <img src="~/Image/Icons/star.png" style="width: 10px; height: 10px; padding-left: 4px; " />
+                            <img src="~/Image/Icons/star.png" style="width: 10px; height: 10px; padding-left: 4px; " />
+                            <img src="~/Image/Icons/star.png" style="width: 10px; height: 10px; padding-left: 4px; " />
+                            <img src="~/Image/Icons/star.png" style="width: 10px; height: 10px; padding-left: 4px; " />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Block-items-footer">
+                    <p class="v1">Меню</p>
+
+                    <div id="v2">
+                        @Html.ActionLink("Главная", "sdf", "sdf")
+                    </div>
+                    <div id="v2">
+                        @Html.ActionLink("Контакты", "sdf", "sdf")
+                    </div>
+                    <div id="v2">
+                        @Html.ActionLink("Оплата", "sdf", "sdf")
+                    </div>
+                    <div id="v2">
+                        @Html.ActionLink("Доставка", "sdf", "sdf")
+                    </div>
+                </div>
+
+                <div class="Block-items-footer">
+                    <p class="v1">Информация</p>
+                    <p class="information-footer" style="width: 356px;">
+                        Общество с ограниченной ответственностью «Робинзон Бел», УНП: 193149844, ОКПО: 502343355000, Свидетельство № 193149844, Выдано 10.10.2018 Минским горисполкомом, Юридический адрес: 220030, Беларусь, г. Минск, ул. Немига, 3, цоколь, часть помещения 3, Почтовый адрес: 220030, Беларусь, г. Минск, ул. Немига, 3, цоколь, место 2, Режим работы: Пн-Вс 10:00-19:00. Регистрационный номер в Торговом реестре №432127 от 13.11.2018. Оплата: наличными, наложенным платежом, банковской картой, посредством системы "Расчет" (ЕРИП).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/SearchTitle.js"></script>
+    <script src="~/js/SliderShow.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
