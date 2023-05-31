@@ -1,0 +1,54 @@
+﻿@using ShopAlp.Models;
+@{
+    ViewData["Title"] = "Cart";
+}
+
+
+@if (DataUser.productCart != null && DataUser.onaccoutn && DataUser.productCart.Count > 0)
+{
+    <div class="Cart">
+
+        <h2 class="cart-name">Корзина</h2>
+        <div class="menu-line" id="cart-line"></div>
+
+        <div class="scroll">
+            @foreach (var item in DataUser.productCart)
+            {
+                <div class="Cart-item" @item[0]>
+                    <div class="photo-cart">
+                        <img src="~/@item[3]" />
+                    </div>
+                    <div class="title-cart">
+                        <div class="title-cart">
+                            <h4>@item[1]</h4>
+                        </div>
+                        <div class="btn-title">
+
+                            <div class="btn-format">
+                                @Html.ActionLink("Купить", "Buy")
+                            </div>
+
+                            <div class="btn-format" id="remove">
+                                @Html.ActionLink("Удалить", "deleteFromCart", new {idProduct = @item[0]})
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="price-cart">
+                        <h4 class="price"><span class="price-bold">@item[9]</span> BYN</h4>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+}
+else
+{
+    <h2 class="cart-name">Корзина пуста</h2>
+}
+
+
+

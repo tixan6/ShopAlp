@@ -1,6 +1,9 @@
-﻿<!DOCTYPE html>
+﻿
+@using ShopAlp.Models;
+<!DOCTYPE html>
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width" />
     <title>_Layout</title>
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/style.css")" />
@@ -11,18 +14,50 @@
         <div class="top-header">
             <div class="container">
                 <div class="Top-header-positions">
-                    <div class="left-items-topHeader" id="centerTopHeader">
-                        <div class="entry">
-                            <img class="icons-user" src="~/Image/Icons/IconsProfile.png" />
-                            @Html.ActionLink("Вход", "dfs", "dsf")
-                        </div>
-                        <div class="registraitions">
-                            @Html.ActionLink("Регистрация", "dfs", "dsf")
-                        </div>              
+                    <div class="left-items-topHeader" id="centerTopHeader">                  
+                        
+                        @if (DataUser.onaccoutn)
+                        {                        
+                            <div class="entry">
+                                @Html.ActionLink("Выход", "exit")
+                            </div>
+                            <div class="registraitions">
+                                <p style="margin: 0 10px;">@DataUser.phone</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="entry">
+                                <img class="icons-user" src="~/Image/Icons/IconsProfile.png" />
+                                @Html.ActionLink("Вход", "Sigin")
+                            </div>
+                            <div class="registraitions">
+                                @Html.ActionLink("Регистрация", "Registrations")
+                            </div>
+                        }
+                                          
                     </div>
-                    <div class="rigth-items-topHeader" id="centerTopHeader">               
-                        <img class="icons-card" src="~/Image/Icons/IconsCard.png" />
-                        @Html.ActionLink("0", "dfs", "dsf")                    
+                    <div class="rigth-items-topHeader" id="centerTopHeader">    
+                        @{
+                            <img class="icons-card" src="~/Image/Icons/IconsCard.png" />
+                            if (DataUser.onaccoutn)
+                            {
+                                if (DataUser.coutn < 0)
+                                {
+                                    DataUser.coutn = 0;
+                                    @Html.ActionLink($"{DataUser.coutn.ToString()}", "OpenCart")
+                                }
+                                else
+                                {
+                                    @Html.ActionLink($"{DataUser.coutn.ToString()}", "OpenCart")
+                                }                               
+                            }
+                            else
+                            {
+                                @Html.ActionLink($"0", "OpenCart")
+                            }
+
+                        }                            
                     </div>
                 </div>                         
             </div>         
@@ -138,10 +173,6 @@
                                     <li> @Html.ActionLink("Наключные", "Subdirectory", new {type = "Наключные", dataBd = "light"}) <div class="menu-line"></div></li>
                                     <li> @Html.ActionLink("Ручные", "Subdirectory", new {type = "Ручные", dataBd = "light"}) <div class="menu-line"></div></li>
                                 </ul>
-                                <div class="menu-line"></div>
-                            </li>
-                            <li>
-                                @Html.ActionLink("СКИДКИ!!!", "sdf", "sdf")
                             </li>
 
                         </ul>
@@ -158,6 +189,27 @@
            
         </div>
     </section>
+
+    <section class="comments">
+        <div class="container">
+            
+            <div id="disqus_thread"></div>
+            <script>
+                (function () { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://localhost-magqhjngly.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </section>
+    
+
+
 
     <div style="width: 100%; height: 1px; background: #818181;"></div>
 
@@ -180,7 +232,6 @@
                             <p>+375<span style="font-weight:bold;">(44)-212-22-33</span></p>
                         </div>
                     </div>
-
 
                     <p class="v1">Режим работы</p>
                     <div class="items-infoPlace">
@@ -213,16 +264,16 @@
                     <p class="v1">Меню</p>
 
                     <div id="v2">
-                        @Html.ActionLink("Главная", "sdf", "sdf")
+                        @Html.ActionLink("Главная", "Index")
                     </div>
                     <div id="v2">
-                        @Html.ActionLink("Контакты", "sdf", "sdf")
+                        @Html.ActionLink("Контакты", "Contact")
                     </div>
                     <div id="v2">
-                        @Html.ActionLink("Оплата", "sdf", "sdf")
+                        @Html.ActionLink("Оплата", "Pay")
                     </div>
                     <div id="v2">
-                        @Html.ActionLink("Доставка", "sdf", "sdf")
+                        @Html.ActionLink("Доставка", "Friends")
                     </div>
                 </div>
 
@@ -236,9 +287,94 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if (Convert.ToBoolean(ViewData["sucReg"]))
+    {
+        <script>
+            Swal.fire({
+                title: 'Аккаунт успешно создан, можете войти в личный кабинет',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        </script>
+    }
+    @if (Convert.ToBoolean(ViewData["sucLog"]))
+    {
+        <script>
+            Swal.fire({
+                title: 'Вы успешно вошли в аккаунт',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        </script>
+    }
+    @if (Convert.ToBoolean(ViewData["NoCart"]))
+    {
+        <script>
+            Swal.fire({
+                title: 'Войдите в аккаунт',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        </script>
+    }
+    @if (Convert.ToBoolean(ViewData["addCart"]))
+    {
+        <script>
+            Swal.fire({
+                title: 'Товар успешно добавлен в корзину',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        </script>
+    }
+    @if (Convert.ToBoolean(ViewData["rep"]))
+    {
+        <script>
+            Swal.fire({
+                title: 'Такой продукт уже есть в корзине',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        </script>
+    }
+    @if (Convert.ToBoolean(ViewData["RemoveItems"]))
+    {
+        <script>
+            Swal.fire({
+                title: 'Товар успешно удалён из корзины',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        </script>
+    }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/SearchTitle.js"></script>
     <script src="~/js/SliderShow.js"> </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+@*    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>*@
+    <script id="dsq-count-scr" src="//localhost-magqhjngly.disqus.com/count.js" async></script>
 </body>
 </html>

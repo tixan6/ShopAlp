@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Signin";
+}
+@model ShopAlp.Models.Login;
+<div class="block-reg">
+    <h2>Вход в личный кабинет</h2>
+
+    @Html.ValidationSummary(true)
+    <div class="bg-reg">
+        @using (Html.BeginForm("Sigin", "Home", FormMethod.Post))
+        {
+            <div class="outline-elements">
+                <div class="box">
+                    <div class="phone-reg" id="style-inputs-reg">
+                        @Html.ValidationMessageFor(x => x.phone)
+                        @Html.EditorFor(x => x.phone, new {htmlAttributes = new {placeholder = "Номер телефона"}})
+                    </div>
+
+                    <div class="name-reg" id="style-inputs-reg">
+                        @Html.ValidationMessageFor(x => x.password)
+                        @Html.EditorFor(x => x.password, new {htmlAttributes = new {placeholder = "Пароль"}})
+                    </div>
+                </div>       
+            </div>
+            
+            <div class="box"> 
+                <input type="submit" class="reg" value="Войти">
+            </div>
+        }
+        
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/js/smoothShowing.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </div>
+</div>

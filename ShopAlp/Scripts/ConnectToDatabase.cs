@@ -21,13 +21,8 @@ namespace ShopAlp.Scripts
                    Port,
                    Password);
 
-
-
         public object take(string query)
         {
-            
-            
-
             NpgsqlCommand command = new NpgsqlCommand(query, connection);
             NpgsqlDataReader npgSqlDataReader = command.ExecuteReader();
 
@@ -57,12 +52,5 @@ namespace ShopAlp.Scripts
             NpgsqlDataReader npgSqlDataReader = command.ExecuteReader();
             connection.Close();    
         }
-
-
-
-
-
-
-
     }
 }

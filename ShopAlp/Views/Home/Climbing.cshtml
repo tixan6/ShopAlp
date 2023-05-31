@@ -1,6 +1,7 @@
 ﻿@using ShopAlp.Models;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <link rel="stylesheet" href="~/test/bootstrap-theme.css" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 @model List<List<object>>
 @{
     ViewData["Title"] = "Climbing";
@@ -17,7 +18,7 @@
 
     <div class="tovar-blocks">
 
-        @foreach (var item in Model)
+        @foreach (var item in DataUser.dataP)
         {
             <div class="block-items forSearch" id="@item[0]">
 
@@ -56,7 +57,7 @@
                             <h4 class="inStock">В наличии</h4>
                             <h4 class="price"><span class="price-bold">@item[9]</span> BYN</h4>
                             <div class="btn-format" id="flex-end">
-                                @Html.ActionLink("В корзину", "sdf", "sdf")
+                                @Html.ActionLink("В корзину", "InCart", new {idProduct = @item[0]})
                             </div>
                         </div>
                         

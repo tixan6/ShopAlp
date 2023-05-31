@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Registrations";
+}
+@model ShopAlp.Models.Registration;
+<div class="block-reg">
+    <h2>Регистрация нового пользователя</h2>
+
+    @Html.ValidationSummary(true)
+    <div class="bg-reg">
+        @using (Html.BeginForm("Registrations", "Home", FormMethod.Post)) 
+        {
+            <div class="outline-elements">
+                <div class="box">
+                    <div class="phone-reg" id="style-inputs-reg">
+                        @Html.ValidationMessageFor(x => x.phone)
+                        @Html.EditorFor(x => x.phone, new {htmlAttributes = new {placeholder = "Номер телефона"}})
+                    </div>
+
+                    <div class="name-reg" id="style-inputs-reg">
+                        @Html.ValidationMessageFor(x => x.name)
+                        @Html.EditorFor(x => x.name, new {htmlAttributes = new {placeholder = "Имя"}})
+                    </div>
+
+                    <div class="surname-reg" id="style-inputs-reg">
+                        @Html.ValidationMessageFor(x => x.surname)
+                        @Html.EditorFor(x => x.surname, new {htmlAttributes = new {placeholder = "Фамилия"}})
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <div class="phone-reg" id="style-inputs-reg">
+                        @Html.ValidationMessageFor(x => x.password)
+                        @Html.EditorFor(x => x.password, new {htmlAttributes = new {placeholder = "Пароль"}})
+                    </div>
+
+                    <div class="name-reg" id="style-inputs-reg">
+                        @Html.ValidationMessageFor(x => x.repeat_password)
+                        @Html.EditorFor(x => x.repeat_password, new {htmlAttributes = new {placeholder = "Повторите пароль"}})
+                    </div>
+
+                    @*<div class="captcha" id="style-inputs-reg">
+                        <div class="g-recaptcha" data-sitekey="6LenVEwmAAAAAIqAM63zMi-W-Ahnu94cfM58zGww"></div>
+                    </div>*@
+                </div>
+            </div>
+            
+
+            <div class="box"> 
+                <input type="submit" class="reg" value="Завершить регистрацию">
+            </div>
+        }
+        
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/js/smoothShowing.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </div>
+</div>
